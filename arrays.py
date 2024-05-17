@@ -1,13 +1,13 @@
 # basic array operations
-array = [1, 2, 3, 4, 5]
-print("initial:", array)
-print("access:", array[2]) 
-array[1] = 10
-print("modify:", array)
-array.append(6)
-print("append:", array)
-array.pop(1)
-print("delete:", array)
+basic_array = [1, 2, 3, 4, 5]
+print("initial basic array:", basic_array)
+print("accessing element at index 2:", basic_array[2]) 
+basic_array[1] = 10
+print("modify:", basic_array)
+basic_array.append(6)
+print("append:", basic_array)
+basic_array.pop(1)
+print("delete:", basic_array)
 
 # traversing and sum
 def array_sum(arr):
@@ -15,9 +15,9 @@ def array_sum(arr):
     for num in arr:
         sum += num
     return sum
-arr = [1, 2, 3, 4, 5]
-print(arr)
-print("array sum:", array_sum(arr))
+arr_to_sum = [2, 4, 6, 8, 10]
+print(arr_to_sum)
+print("the sum of the array is:", array_sum(arr_to_sum))
 
 # find max element
 def find_max_element(arr):
@@ -26,9 +26,9 @@ def find_max_element(arr):
       if num > max:
           max = num
   return max  
-
-print("max element of array is:", find_max_element(arr))
-print(max(arr)) # shortcut!
+arr_to_find_max = [1, 2, 3, 4, 5, 3, 4, 5, 2, 8, 7, 3, 2, 1]
+print("max element of array is:", find_max_element(arr_to_find_max))
+print("shortcut with max():", max(arr_to_find_max)) # shortcut!
 
 # reversing an array
 def reverse_array(arr):
@@ -37,13 +37,14 @@ def reverse_array(arr):
   end = len(arr) - 1
 
   while start < end:
-    arr[start], arr[end] = arr[end], arr[start]
+    arr[start], arr[end] = arr[end], arr[start] # swapping
     start += 1
     end -= 1
 
-arr = [1, 2, 3, 4, 5]
-reverse_array(arr)
-print("reversed an array:", arr)
+before_reverse = [1, 2, 3, 4, 5]
+print("original array: ", before_reverse)
+reverse_array(before_reverse)
+print("reversed an array:", before_reverse)
 
 # remove duplicates from array 
 def remove_duplicates(arr):
@@ -53,8 +54,8 @@ def remove_duplicates(arr):
         unique.append(num)
   return unique  
 
-arr = [1, 2, 2, 3, 4, 4, 5, 5, 5, 8]
-print("removed duplicates:", remove_duplicates(arr))
+contains_duplicates = [1, 2, 2, 3, 4, 4, 5, 5, 5, 8]
+print("removed duplicates:", remove_duplicates(contains_duplicates))
 
 # merge two arrays into one sorted array
 def merge_arrays(a1, a2):
@@ -106,6 +107,6 @@ def binary_search(arr, target):
       right = mid - 1
   return -1 # no found 
 
-arr = [1, 2, 3, 4, 5]
+sample = [1, 2, 3, 4, 5]
 target = 4
-print("Index of target 4:", binary_search(arr, target))
+print("Index of target 4:", binary_search(sample, target))
