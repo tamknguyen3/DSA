@@ -20,3 +20,21 @@ print(Python_in_string)
 # incrementing += and decrementing -=      applies to other operators too: **=, //=
 # Boolean comparisons == != > < >- <=
 # Boolean operators and or not 
+
+# for character in "for loops":
+  # print(character)
+
+# range() returns a sequence of numbers
+# range(start, stop)
+# range(start, stop, increment/decrement)
+
+# advanced control flow --> nested for and while loops
+for i in range(1, 3): #1, 2
+  for j in range(20, 23): #20, 22
+    for k in range(-1, -3, -1): #-1, -2
+      print(i * j * k)
+
+# continue -- used to continue to the next iteration (skips)
+# break -- breaking the loop that it is in and flows the program to the next part 
+# pass -- simply a placeholder that does nothing 
+
