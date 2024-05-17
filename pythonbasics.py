@@ -20,7 +20,3 @@ print(Python_in_string)
 # incrementing += and decrementing -=      applies to other operators too: **=, //=
 # Boolean comparisons == != > < >- <=
 # Boolean operators and or not 
-print("\n\n\n")
-
-# basic online purchasing system 
-print("Welcome to the online shopping experience!")
