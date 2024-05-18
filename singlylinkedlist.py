@@ -58,7 +58,7 @@ class SinglyLinkedList:
     
     target = self.head
     target_index = 0            
-    while target is not None and target < index - 1:
+    while target is not None and target_index < index - 1:
       target = target.next
       target_index += 1
 
@@ -91,14 +91,26 @@ class SinglyLinkedList:
     prev.next = current.next 
     current = None
 
+  # iteration methods 
+  def __iter__(self):
+    self._iterator = self.head
+    return self
+  
+  def __next__(self):
+    if self._iterator is None:
+      raise StopIteration
+    current_data = self._iterator.data
+    self._iterator = self._iterator.next
+    return current_data
+
 
 
 if __name__ == "__main__":
   sll = SinglyLinkedList()
 
-  sll.prepend(1)
-  sll.prepend(2)
-  sll.prepend(3)
+  sll.prepend(10)
+  sll.prepend(20)
+  sll.prepend(30)
   print("Linked List after prepending:")
   sll.traverse()
 
@@ -108,6 +120,15 @@ if __name__ == "__main__":
   print("Linked list after appending:")
   sll.traverse()  
 
+
+  sll.insert(25, 2)
+  sll.insert(5, 0)
+  sll.insert(60, 6)
+
+  print("Linked list after various insertions:")
+  sll.traverse()  # Expected output: 5 -> 30 -> 20 -> 25 -> 10 -> 40 -> 60 -> 50 -> None
+
+  
   try:
     print("Element at index 0:", sll.get(0))
     print("Element at index 1:", sll.get(1))
@@ -118,3 +139,8 @@ if __name__ == "__main__":
 
   except IndexError as e:
     print(e) # Index out of bounds 
+
+  print("Iterating over the list:")
+  for data in sll:
+    print(data, end=" -> ")
+  print("None")
