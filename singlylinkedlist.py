@@ -48,6 +48,48 @@ class SinglyLinkedList:
       last = last.next 
     last.next = new_node
 
+  # method that adds a new node at the given index
+  def insert(self, data, index):
+    new_node = Node(data)      
+    if index == 0:                 # edge case, inserting at the head/front
+      new_node.next = self.head
+      self.head = new_node
+      return
+    
+    target = self.head
+    target_index = 0            
+    while target is not None and target < index - 1:
+      target = target.next
+      target_index += 1
+
+    if target is None:
+      raise IndexError("Index out of bounds")
+    
+    new_node.next = target.next   # reassigning the pointers
+    target.next = new_node
+
+  # method that removes a node at the given index
+  def delete(self, index):
+    if self.head is None:         # list is emptythere's nothing to remove 
+      raise IndexError("Index out of bounds")
+    
+    current = self.head
+    if index == 0:                        # removing the head 
+      self.head = current.next
+      return
+    
+    prev = None 
+    current_index = 0
+    while current is not None and current_index < index:
+      prev = current
+      current = current.next 
+      current_index += 1
+
+    if current is None:             # reaches the end before the given index
+      raise IndexError("Index out of bounds")
+    
+    prev.next = current.next 
+    current = None
 
 
 
